@@ -1,0 +1,4 @@
+Address = 10.100.16.1
+Subnet = 10.100.16.1/32
+#Port = 50059
+Ed25519PrivateKeyFile=/root/tinc/rsa_key.priv

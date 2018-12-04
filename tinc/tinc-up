@@ -1,0 +1,15 @@
+#! /bin/sh
+
+dev=tun0
+vpngw=10.255.255.254
+
+echo 1 > /proc/sys/net/ipv4/ip_forward
+ifconfig ${dev} ${vpngw} netmask 255.0.0.0
+iptables -t nat -F
+iptables -t nat -A POSTROUTING -s ${vpngw}/8 -o eth0 -j MASQUERADE
+
+#start obfs
+#nohup obfsproxy obfs2 --dest=127.0.0.1:50059 server 0.0.0.0:80 &
+
+#tinctop --config=/root/tinc --pidfile=/root/tinc/tinc.pid
+exit 0

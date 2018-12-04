@@ -1,0 +1,2 @@
+#! /bin/bash
+nohup python -u ./register_server.py > err.log 2>&1 &

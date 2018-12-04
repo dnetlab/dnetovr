@@ -1,0 +1,10 @@
+#!/bin/sh
+
+KEY_DIR=/root/tinc/key
+
+if [ -z $KEY_DIR ]; then
+        echo "Please set the key out dir"
+else
+        openssl genrsa -out $KEY_DIR/rsa_key.priv -f4 2048
+        openssl rsa -in $KEY_DIR/rsa_key.priv -pubout -out $KEY_DIR/rsa_key.pub
+fi

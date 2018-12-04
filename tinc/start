@@ -1,0 +1,3 @@
+#! /bin/bash
+
+/root/tinc/tincd --config=/root/tinc --pidfile=/root/tinc/tinc.pid

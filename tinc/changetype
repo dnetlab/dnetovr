@@ -1,0 +1,77 @@
+#! /bin/bash
+
+tincpath=/root/tinc
+sed -i "s/10.100.$1.1/10.100.$2.1/g" ${tincpath}/tinc-up
+sed -i "s/10.100.$1.1/10.100.$2.1/g" ${tincpath}/hosts/vpnserver
+for i in $(seq 2 254);
+do
+    sed -i "s/10.100.$1.$i/10.100.$2.$i/g" ${tincpath}/hosts/$i
+done
+
+case $1 in
+10)
+game=Game1
+;;
+11)
+game=Game2
+;;
+12)
+game=Game3
+;;
+13)
+game=Game4
+;;
+14)
+game=Game5
+;;
+16)
+game=vppn1
+;;
+17)
+game=vppn2
+;;
+18)
+game=vppn3
+;;
+19)
+game=vppn4
+;;
+20)
+game=vppn5
+;;
+esac
+
+case $2 in
+10)
+game1=Game1
+;;
+11)
+game1=Game2
+;;
+12)
+game1=Game3
+;;
+13)
+game1=Game4
+;;
+14)
+game1=Game5
+;;
+16)
+game1=vppn1
+;;
+17)
+game1=vppn2
+;;
+18)
+game1=vppn3
+;;
+19)
+game1=vppn4
+;;
+20)
+game1=vppn5
+;;
+esac
+
+sed  -i "s/${game}/${game1}/g" ${tincpath}/register.conf
