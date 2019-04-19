@@ -1,3 +1,4 @@
 #!/bin/sh
 
+#/root/tinc/tinc-report -hd ${NODE}
 /root/tinc/proxyReport ${NODE} down /root/tinc/auth/auth.txt
