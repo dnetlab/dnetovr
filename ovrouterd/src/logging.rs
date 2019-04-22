@@ -22,7 +22,7 @@ const COLORS: ColoredLevelConfig = ColoredLevelConfig {
     warn: Color::Yellow,
     info: Color::Green,
     debug: Color::Blue,
-    trace: Color::Black,
+    trace: Color::Cyan,
 };
 
 #[cfg(not(windows))]
@@ -140,10 +140,11 @@ pub fn init_logger(
         rotate_log(log_file)?;
         let file_formatter = Formatter {
             output_timestamp: true,
-            output_color: false,
+            output_color: true,
         };
         let f = fern::log_file(log_file)?;
         let file_dispatcher = fern::Dispatch::new()
+            .level(log::LevelFilter::Warn)
             .format(move |out, message, record| file_formatter.output_msg(out, message, record))
             .chain(Output::file(f, LINE_SEPARATOR));
         top_dispatcher = top_dispatcher.chain(file_dispatcher);
