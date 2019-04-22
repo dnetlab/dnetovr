@@ -1,13 +1,13 @@
 [package]
-name = "ovrouter"
+name = "ovrouterd"
 version = "0.1.0"
 authors = ["yanbowen <bowen.yan@gitblit.com>"]
 
 [[bin]]
-name = "ovrouter"
+name = "ovrouterd"
 
 [lib]
-name = "ovrouter"
+name = "ovrouterd"
 
 [dependencies]
 log = "0.4.5"

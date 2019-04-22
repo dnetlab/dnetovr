@@ -12,15 +12,15 @@ extern crate log;
 extern crate clap;
 use clap::{App, Arg};
 
-extern crate ovrouter;
+extern crate ovrouterd;
 
-use ovrouter::settings::Settings;
-use ovrouter::tinc_manager::check::*;
-use ovrouter::tinc_manager::Tinc;
-use ovrouter::domain::Info;
-use ovrouter::http_server_client::Client;
-use ovrouter::http_server_client::web_server;
-use ovrouter::logging::init_logger;
+use ovrouterd::settings::Settings;
+use ovrouterd::tinc_manager::check::*;
+use ovrouterd::tinc_manager::Tinc;
+use ovrouterd::domain::Info;
+use ovrouterd::http_server_client::Client;
+use ovrouterd::http_server_client::web_server;
+use ovrouterd::logging::init_logger;
 
 const LOG_FILENAME: &str = "ovrouter.log";
 #[cfg(unix)]
